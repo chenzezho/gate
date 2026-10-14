@@ -41,7 +41,7 @@ VPNGATE_MIRROR = os.environ.get(
     "VPNGATE_MIRROR",
     "https://raw.githubusercontent.com/fdciabdul/Vpngate-Scraper-API/main/json/data.json",
 )
-WORKER_CHECK_URL = os.environ.get("CHECK_WORKER", "https://你的域名/check?sstp=vpn:vpn@")
+WORKER_CHECK_URL = os.environ.get("CHECK_WORKER", "https://vpngate.068668.xyz/check?sstp=vpn:vpn@")
 CONCURRENCY = max(1, int(os.environ.get("CHECK_CONCURRENCY", "32")))
 CHECK_TIMEOUT = float(os.environ.get("CHECK_TIMEOUT", "90"))
 MAX_CHECK_NODES = int(os.environ.get("MAX_CHECK_NODES", "0"))
@@ -85,9 +85,9 @@ EDGE_HOSTS = [
     h.strip()
     for h in os.environ.get(
         "EDGE_HOSTS",
-        "saas.sin.fan:443,cdn.204910.best:443,www.mfyx.cn:443,p.etime.vip:443,cdn.ctn32.us.kg:443,cf.877774.xyz:443,spring.io:443,"
-        "cf.nyanya.moe:443,www.sloomb.com:443,op.chinwa.eu.cc:443,www.leics.police.uk:443,securecircle.com:443,www.shopify.com:443,"
-        "www.carousell.sg:443,www.dbs.com.sg:443,openai.com:443,linear.app:443,www.bilibili.com:443,uspto.gov:443,www.vmware.com:443",
+        "53.fs1.hubspotusercontent-na1.net:2087,go1.dematic.com:443,www.visa.com.tw:2053,hitcon.org:8443,form.assaabloy.com:2053,"
+        "clickhouse.com:2083,dynadot.com:8443,encryptedsni.com:2087,m.iyf.tv:2096,newsroom.avalara.com:8443,www.zendesk.com:8443,"
+        "development.ihg.com:2053,mogas.com:2053,qoj.ac:2053,spring.io:8443,cfip.1323123.xyz:443,dango.co:2053,mfa.gov.ua:2053,www.visa.com.hk:2087",
     ).split(",")
     if h.strip()
 ]
@@ -509,9 +509,9 @@ def main():
     log("RESULT", f"国家数量: {data['stats']['countries']}")
 
     # 动态拉取 API 并与静态优选域名混合
-    edge_hosts = get_combined_edge_hosts()
+     = get_combined_()
 
-    data_path, html_path, nodes_path = write_outputs(data, edge_hosts)
+    data_path, html_path, nodes_path = write_outputs(data, )
     log("WEBSITE", f"生成 {os.path.relpath(data_path, REPO_DIR)}")
     log("WEBSITE", f"生成 {os.path.relpath(html_path, REPO_DIR)}")
     log("WEBSITE", f"生成 {os.path.relpath(nodes_path, REPO_DIR)}")
