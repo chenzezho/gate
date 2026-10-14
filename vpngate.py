@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 VPN Gate SSTP 节点检测流水线 (精简版)
-=====================================
+==============================================
 流程:
   1. 获取 VPN Gate 原始节点
   2. 只保留带 TCP 入口的 SSTP 节点
@@ -509,9 +509,9 @@ def main():
     log("RESULT", f"国家数量: {data['stats']['countries']}")
 
     # 动态拉取 API 并与静态优选域名混合
-     = get_combined_()
+    edge_hosts = get_combined_edge_hosts()
 
-    data_path, html_path, nodes_path = write_outputs(data, )
+    data_path, html_path, nodes_path = write_outputs(data, edge_hosts)
     log("WEBSITE", f"生成 {os.path.relpath(data_path, REPO_DIR)}")
     log("WEBSITE", f"生成 {os.path.relpath(html_path, REPO_DIR)}")
     log("WEBSITE", f"生成 {os.path.relpath(nodes_path, REPO_DIR)}")
